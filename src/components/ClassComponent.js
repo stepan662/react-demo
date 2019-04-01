@@ -1,10 +1,16 @@
 import React from 'react'
+import MyContext from '../MyContext'
 
 class ClassComponent extends React.Component {
   render() {
-    const { clicked, handleClick } = this.props
     return (
-      <div onClick={handleClick}>Im class component {clicked && 'clicked'}</div>
+      <MyContext.Consumer>
+        {context => (
+          <div onClick={context.handleClick}>
+            Im class component {context.clicked && 'clicked'}
+          </div>
+        )}
+      </MyContext.Consumer>
     )
   }
 }

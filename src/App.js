@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 import ClassComponent from './components/ClassComponent'
 import FunctionComponent from './components/FunctionComponent'
+import MyContext from './MyContext'
 
 class App extends Component {
   state = {
@@ -22,8 +23,15 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
 
-          <ClassComponent clicked={clicked} handleClick={this.handleClick} />
-          <FunctionComponent clicked={clicked} handleClick={this.handleClick} />
+          <MyContext.Provider
+            value={{
+              clicked,
+              handleClick: this.handleClick,
+            }}
+          >
+            <ClassComponent />
+            <FunctionComponent />
+          </MyContext.Provider>
         </header>
       </div>
     )
