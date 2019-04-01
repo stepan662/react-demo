@@ -1,10 +1,10 @@
 import React from 'react'
 
 const FunctionComponent = props => {
-  const [clicked, setClicked] = React.useState(false)
+  const { clicked, handleClicked } = props
 
   return (
-    <div onClick={() => setClicked(true)}>
+    <div onClick={handleClicked}>
       Im function component {clicked && 'clicked'}
     </div>
   )
